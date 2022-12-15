@@ -1,0 +1,30 @@
+{
+  "name": "flashcards-browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js --ext js,jsx,json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NSLyuma/flashcards-browser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NSLyuma/flashcards-browser/issues"
+  },
+  "homepage": "https://github.com/NSLyuma/flashcards-browser#readme",
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "nodemon": "^2.0.20"
+  }
+}
