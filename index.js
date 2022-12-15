@@ -1,22 +1,23 @@
 require('@babel/register');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const Home = require('./views/Home');
+const indexRouter = require('./routes/indexRouter');
 
 const app = express();
 
 app.use(morgan('dev'));
+const staticDir = path.join(__dirname, 'public');
 
 app.locals.title = 'Flashcards';
 
-app.get('/', (req, res) => {
-  const home = React.createElement(Home, req.app.locals);
-  const html = ReactDOMServer.renderToStaticMarkup(home);
-  res.write('<!doctype html>');
-  res.end(html);
-});
+// прочесть тело запросов в формате urlencoded -> req.body
+app.use(express.urlencoded({ extended: true }));
+// прочесть тело запросов в формате JSON -> req.body
+app.use(express.json());
+// раздать статические файлы — изображения, стили, клиентские скрипты, etc.
+app.use(express.static(staticDir));
+app.use('/', indexRouter);
 
 /* eslint-disable no-console */
 app
