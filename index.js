@@ -1,11 +1,22 @@
+require('@babel/register');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 const express = require('express');
 const morgan = require('morgan');
+const Home = require('./views/Home');
 
 const app = express();
 
 app.use(morgan('dev'));
 
-app.get('/', (req, res) => {});
+app.locals.title = 'Flashcards';
+
+app.get('/', (req, res) => {
+  const home = React.createElement(Home, req.app.locals);
+  const html = ReactDOMServer.renderToStaticMarkup(home);
+  res.write('<!doctype html>');
+  res.end(html);
+});
 
 /* eslint-disable no-console */
 app
