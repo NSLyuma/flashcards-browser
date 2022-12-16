@@ -5,12 +5,13 @@ const express = require('express');
 // const morgan = require('morgan');
 const expressConfig = require('./config/express');
 const indexRouter = require('./routes/indexRouter');
+const topicRouter = require('./routes/topic.router');
 const db = require('./db/models');
 
 // const staticDir = path.join(__dirname, 'public');
 const PORT = process.env.PORT || 3000;
 const app = express();
-expressConfig(app)
+expressConfig(app);
 app.locals.title = 'Flashcards';
 
 // app.use(morgan('dev'));
@@ -22,7 +23,7 @@ app.locals.title = 'Flashcards';
 // app.use(express.static(staticDir));
 
 app.use('/', indexRouter);
-
+app.use('/topicPage', topicRouter);
 /* eslint-disable no-console */
 app
   .listen(PORT)

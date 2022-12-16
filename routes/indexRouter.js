@@ -10,8 +10,4 @@ indexRouter.get('/', (req, res) => {
   );
 });
 
-indexRouter.post('/', (req, res) => {
-
-});
-
 module.exports = indexRouter;
