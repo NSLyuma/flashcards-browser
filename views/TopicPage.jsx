@@ -1,14 +1,15 @@
 const React = require('react');
+const Deck = require('./Deck');
 const Layout = require('./Layout');
 
-module.exports = function topicPage() {
+module.exports = function topicPage({ deck = [] }) {
   return (
     <Layout>
+      <h2>Список тем</h2>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <h1>Выбор темы</h1>
+        {deck.map((item) => (
+          <Deck key={item.id} title={item.title} />
+        ))}
       </ul>
     </Layout>
   );
