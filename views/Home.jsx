@@ -16,7 +16,7 @@ function Home({ title }) {
             <a href="#">Войти</a>
           </li>
           <li>
-            <a className="js-refMain" href="/">
+            <a className="js-refMain" href="/topicPage">
               Главная
             </a>
           </li>
