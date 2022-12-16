@@ -7,6 +7,7 @@ const expressConfig = require('./config/express');
 const indexRouter = require('./routes/indexRouter');
 const topicRouter = require('./routes/topic.router');
 const db = require('./db/models');
+const cardRouter = require('./routes/card.router');
 
 // const staticDir = path.join(__dirname, 'public');
 const PORT = process.env.PORT || 3000;
@@ -24,6 +25,7 @@ app.locals.title = 'Flashcards';
 
 app.use('/', indexRouter);
 app.use('/topicPage', topicRouter);
+app.use('/', cardRouter);
 /* eslint-disable no-console */
 app
   .listen(PORT)
