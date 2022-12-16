@@ -1,9 +1,9 @@
 const React = require('react');
 
-function Card({ question }) {
+function Card({ id, question }) {
   return (
-    <div data-id={question.id}>
-      <h3>{question.question}</h3>
+    <div data-id={id}>
+      <h5>{question}</h5>
       <form method="post" action="/">
         <input type="text" name="user_answer" />
         <button type="submit">Ответить</button>
