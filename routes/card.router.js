@@ -14,11 +14,16 @@ cardRouter.get('/topicPage/:id', async (req, res) => {
 
 cardRouter.post('/topicPage/:id', async (req, res) => {
   const userAnswer = req.body.userAnswer;
+  const userAnswerId = req.body.id;
   const answer = await Guess.findOne({ where: { answer: userAnswer } });
+  const right = await Guess.findOne({ where: { id: userAnswerId } });
   if (answer) {
     res.renderComponent(TrueFalse, { text: 'Верно' });
   } else {
-    res.renderComponent(TrueFalse, { text: 'Неверно' });
+    res.renderComponent(TrueFalse, {
+      text: 'Неверно',
+      rightAnswer: right.answer,
+    });
   }
 });
 
