@@ -1,9 +1,9 @@
 const React = require('react');
 
-module.exports = function Deck({ title }) {
+module.exports = function Deck({ id, title }) {
   return (
     <li>
-      <a href="#">{title}</a>
+      <a href={`/topicPage/${id}`}>{title}</a>
     </li>
   );
 };

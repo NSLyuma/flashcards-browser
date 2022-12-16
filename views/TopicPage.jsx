@@ -8,7 +8,7 @@ module.exports = function topicPage({ deck = [] }) {
       <h2>Список тем</h2>
       <ul>
         {deck.map((item) => (
-          <Deck key={item.id} title={item.title} />
+          <Deck key={item.id} id={item.id} title={item.title} />
         ))}
       </ul>
     </Layout>
