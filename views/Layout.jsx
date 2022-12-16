@@ -18,6 +18,7 @@ function Layout({ children }) {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <script defer src="/scripts/client.js" />
       </head>
 
       <body>

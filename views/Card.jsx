@@ -1,13 +1,19 @@
 const React = require('react');
+const TrueFalse = require('./TrueFalse');
 
 function Card({ id, question, deckId }) {
   return (
-    <div data-id={id}>
+    <div data-id={id} className="isTrue">
       <h5>{question}</h5>
-      <form method="post" action={`/topicPage/${deckId}`}>
+      <form
+        className="userAnswer"
+        method="post"
+        action={`/topicPage/${deckId}`}
+      >
         <input type="text" name="user_answer" />
         <button type="submit">Ответить</button>
       </form>
+      <TrueFalse id={id} />
     </div>
   );
 }

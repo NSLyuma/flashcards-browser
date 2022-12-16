@@ -5,9 +5,10 @@ const Layout = require('./Layout');
 module.exports = function topicPage({ deckId, cards = [] }) {
   return (
     <Layout>
+      <a href="/topicPage">Список тем</a>
       <h2>Список вопросов</h2>
       <ul>
-        {cards.map((card) => (
+        {cards.reverse().map((card) => (
           <Card
             key={card.id}
             id={card.id}
