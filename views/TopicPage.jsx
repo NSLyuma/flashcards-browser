@@ -1,13 +1,21 @@
-const React = require('react');
-const Deck = require('./Deck');
-const Layout = require('./Layout');
+const React = require("react");
+const Deck = require("./Deck");
+const Layout = require("./Layout");
 
 module.exports = function topicPage({ deck = [] }) {
   return (
     <Layout>
-      <a href="/">Главная</a>
-      <h2>Список тем</h2>
-      <ul>
+      <div className="list-group">
+        <h2
+          href="#"
+          className="list-group-item list-group-item-action active"
+          aria-current="true"
+        >
+          Список тем
+        </h2>
+      </div>
+      <h2 />
+      <ul style={{ listStyleType: "none" }}>
         {deck.map((item) => (
           <Deck key={item.id} id={item.id} title={item.title} />
         ))}
