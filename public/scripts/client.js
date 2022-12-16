@@ -1,25 +1,26 @@
-const toMain = document.querySelector('.js-refMain');
+const userAnswerList = Array.from(document.querySelectorAll('.userAnswer'));
 
-if (toMain) {
-  toMain.addEventListener('click', async (event) => {
-    event.preventDefault();
+if (userAnswerList) {
+  userAnswerList.map((answer, i) => {
+    answer.addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    const method = 'post';
-    const url = event.target.href;
-    const doc = document.body;
-    const data = JSON.stringify({ doc });
+      const isTrueList = Array.from(document.querySelectorAll('.isTrue'));
 
-    try {
+      const url = event.target.action;
+      const method = event.target.method;
+      const inputValue = event.target.user_answer.value;
+      const userAnswer = JSON.stringify({ userAnswer: inputValue });
+
       const response = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'text/html' },
-        body: data,
+        headers: { 'Content-Type': 'application/json' },
+        body: userAnswer,
       });
 
-      const home = await response.text();
-      document.body.innerHTML = home;
-    } catch (error) {
-      console.log('ERROR IN POST / client.js: ', error.message);
-    }
+      const reaction = await response.text();
+
+      isTrueList[i].innerHTML += reaction;
+    });
   });
 }

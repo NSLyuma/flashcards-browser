@@ -1,27 +1,31 @@
 require('dotenv').config();
 require('@babel/register');
-const path = require('path');
+// const path = require('path');
 const express = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
+const expressConfig = require('./config/express');
 const indexRouter = require('./routes/indexRouter');
+const topicRouter = require('./routes/topic.router');
 const db = require('./db/models');
+const cardRouter = require('./routes/card.router');
 
-const staticDir = path.join(__dirname, 'public');
+// const staticDir = path.join(__dirname, 'public');
 const PORT = process.env.PORT || 3000;
 const app = express();
-
+expressConfig(app);
 app.locals.title = 'Flashcards';
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 // прочесть тело запросов в формате urlencoded -> req.body
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 // прочесть тело запросов в формате JSON -> req.body
-app.use(express.json());
+// app.use(express.json());
 // раздать статические файлы — изображения, стили, клиентские скрипты, etc.
-app.use(express.static(staticDir));
+// app.use(express.static(staticDir));
 
 app.use('/', indexRouter);
-
+app.use('/topicPage', topicRouter);
+app.use('/', cardRouter);
 /* eslint-disable no-console */
 app
   .listen(PORT)

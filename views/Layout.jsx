@@ -2,7 +2,7 @@ const React = require('react');
 
 function Layout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <meta charSet="UTF-8" />
         {/* <link rel="stylesheet" href="../public/css/header.css" /> */}
@@ -25,7 +25,11 @@ function Layout({ children }) {
         <link rel="icon" href="/icon.png" />
         <script defer src="/scripts/client.js" />
       </head>
-      <body>{children}</body>
+
+      <body>
+        {/* <NavBar user={user} /> */}
+        <div className="container">{children}</div>
+      </body>
     </html>
   );
 }
