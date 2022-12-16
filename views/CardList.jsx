@@ -5,6 +5,7 @@ const Layout = require('./Layout');
 module.exports = function topicPage({ deckId, cards = [] }) {
   return (
     <Layout>
+      <a href="/">Главная</a>
       <a href="/topicPage">Список тем</a>
       <h2>Список вопросов</h2>
       <ul>

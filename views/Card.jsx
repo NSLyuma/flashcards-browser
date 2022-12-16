@@ -3,7 +3,11 @@ const TrueFalse = require('./TrueFalse');
 
 function Card({ id, question, deckId }) {
   return (
-    <div data-id={id} className="isTrue" style={{ marginBottom: '30px' }}>
+    <div
+      data-id={id}
+      className="isTrue"
+      style={{ marginBottom: '30px', padding: '10px' }}
+    >
       <h5>{question}</h5>
       <form
         className="userAnswer"
