@@ -7,7 +7,7 @@ function Home({ title }) {
       <header>
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               <img
                 src="/free-icon-quiz-8586882.png"
                 alt="Logo"
@@ -31,7 +31,7 @@ function Home({ title }) {
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="/topicPage">
                     Темы
                   </a>
                 </li>

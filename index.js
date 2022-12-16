@@ -24,7 +24,7 @@ app.locals.title = 'Flashcards';
 // app.use(express.static(staticDir));
 
 app.use('/', indexRouter);
-app.use('/topicPage', topicRouter);
+app.use('/', topicRouter);
 app.use('/', cardRouter);
 /* eslint-disable no-console */
 app
