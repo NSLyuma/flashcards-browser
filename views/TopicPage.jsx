@@ -5,8 +5,23 @@ const Layout = require('./Layout');
 module.exports = function topicPage({ deck = [] }) {
   return (
     <Layout>
-      <h2>Список тем</h2>
-      <ul>
+      <div className="list-group">
+        <a
+          href="/"
+          className="list-group-item list-group-item-action active"
+          aria-current="true"
+        >
+          Главная
+        </a>
+        <h2
+          className="list-group-item list-group-item-action active"
+          aria-current="true"
+        >
+          Список тем
+        </h2>
+      </div>
+      <h2 />
+      <ul style={{ listStyleType: 'none' }}>
         {deck.map((item) => (
           <Deck key={item.id} id={item.id} title={item.title} />
         ))}
